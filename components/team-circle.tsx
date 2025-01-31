@@ -2,15 +2,26 @@
 
 import { teamMembers } from "@/data/team";
 import Image from "next/image";
-import { useState } from "react";
-import { motion, useAnimate } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import ReactCurvedText from "react-curved-text";
 import { easeInOut } from "motion";
 
 export default function TeamCircle() {
   const totalMembers = teamMembers.length;
   const [activeMember, setActiveMember] = useState("");
-  console.log(activeMember);
+  const [initialAnimationComplete, setInitialAnimationComplete] =
+    useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setInitialAnimationComplete(true);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-black">
@@ -32,7 +43,12 @@ export default function TeamCircle() {
                   : `rotate(${angle}deg) translateX(250px) rotate(-${angle}deg) scale(1)`,
               }}
               transition={{
-                duration: 0.8,
+                opacity: {
+                  duration: 1,
+                },
+                transform: {
+                  duration: initialAnimationComplete ? 0.3 : 1,
+                },
               }}
               onClick={() => setActiveMember(member.name)}
               className={`absolute flex h-20 w-20 cursor-pointer items-center justify-center rounded-full border border-green-500 transition-transform duration-300 ${isActive ? "shadow-[0_0_10px_4px] shadow-green-400/30" : ""}`}
@@ -56,8 +72,8 @@ export default function TeamCircle() {
                 className="absolute -inset-6"
               >
                 <ReactCurvedText
-                  width="100%"
-                  height="100%"
+                  height={126}
+                  width={126}
                   cx={63}
                   cy={63}
                   rx={46}
