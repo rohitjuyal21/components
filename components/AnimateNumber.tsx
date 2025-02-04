@@ -7,12 +7,16 @@ import { useEffect } from "react";
 interface AnimateNumberProps {
   value: number;
   isHovered: boolean;
+  index?: number;
+  delay: number;
   className?: string;
 }
 
 export default function AnimateNumber({
   value,
   isHovered,
+  index,
+  delay,
   className,
 }: AnimateNumberProps) {
   const count = useMotionValue(0);
@@ -20,7 +24,10 @@ export default function AnimateNumber({
 
   useEffect(() => {
     if (isHovered) {
-      animate(count, value, { duration: 1, delay: 0.5 });
+      animate(count, value, {
+        duration: 0.5,
+        delay,
+      });
     } else {
       animate(count, 0, { duration: 1 });
     }
