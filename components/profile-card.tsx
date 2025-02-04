@@ -47,7 +47,7 @@ export default function ProfileCard() {
             stiffness: 200,
             bounce: 1,
           }}
-          className="relative z-10 h-full w-full overflow-hidden rounded-full shadow-lg"
+          className="relative z-10 h-full w-full cursor-pointer overflow-hidden rounded-full shadow-lg"
         >
           <Image
             src="/assets/profile-card.png"
@@ -65,7 +65,7 @@ export default function ProfileCard() {
         <motion.div
           initial={{ scaleY: 0, x: "-50%" }}
           variants={{ hover: { scaleY: 1 } }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="absolute left-1/2 top-14 -z-10 w-[350px] origin-top rounded-b-xl bg-white p-6 pt-16 shadow-xl"
         >
           <motion.div
