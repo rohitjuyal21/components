@@ -30,7 +30,7 @@ export default {
       animation: {
         "spin-slow": "spin-slow 50s linear infinite",
         "spin-slow-reverse": "spin-slow-reverse 50s linear infinite",
-        rotate: "rotate 3s linear infinite",
+        rotate: "rotate 5s linear infinite",
       },
     },
   },
