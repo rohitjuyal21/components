@@ -1,3 +1,4 @@
+import BeamInput from "@/components/beam-input";
 import SocialButtonsWithHangBoard from "@/components/follow-me-button";
 import NextButton from "@/components/next-button";
 import ProfileCard from "@/components/profile-card";
@@ -9,7 +10,8 @@ export default function Home() {
       {/* <TeamCircle /> */}
       {/* <NextButton /> */}
       {/* <ProfileCard /> */}
-      <SocialButtonsWithHangBoard />
+      {/* <SocialButtonsWithHangBoard /> */}
+      <BeamInput />
     </>
   );
 }

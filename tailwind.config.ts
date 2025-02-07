@@ -21,10 +21,16 @@ export default {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(-360deg)" },
         },
+        rotate: {
+          "0%": { transform: "rotate(0deg) scale(10)" },
+          "100%": { transform: "rotate(360deg) scale(10)" },
+        },
       },
+
       animation: {
         "spin-slow": "spin-slow 50s linear infinite",
         "spin-slow-reverse": "spin-slow-reverse 50s linear infinite",
+        rotate: "rotate 3s linear infinite",
       },
     },
   },
